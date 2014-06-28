@@ -27,4 +27,8 @@ SOURCE: (https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/HMC5883L)
 NAME: HMC5883L_T<br>
 DESCRIPTION: HMC5883L modified for Teensy compatibility.<br>
 SOURCE: Jeff W for SensorLogger
+
+NAME: HMC5883LFH_T<br>
+DESCRIPTION: HMC5883L modified for Teensy compatibility with additional FH methods.<br>
+SOURCE: Ryan Pierce for SensorLogger
 .
