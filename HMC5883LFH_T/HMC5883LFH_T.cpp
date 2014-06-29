@@ -54,42 +54,42 @@ int HMC5883L::SetScale(float gauss)
 	if(gauss == 0.88F)
 	{
 		regValue = 0x00;
-		m_Scale = 0.73;
+		m_Scale = 0.72993;
 	}
 	else if(gauss == 1.3F)
 	{
 		regValue = 0x01;
-		m_Scale = 0.92;
+		m_Scale = 0.91743;
 	}
 	else if(gauss == 1.9F)
 	{
 		regValue = 0x02;
-		m_Scale = 1.22;
+		m_Scale = 1.2195;
 	}
 	else if(gauss == 2.5F)
 	{
 		regValue = 0x03;
-		m_Scale = 1.52;
+		m_Scale = 1.5152;
 	}
 	else if(gauss == 4.0F)
 	{
 		regValue = 0x04;
-		m_Scale = 2.27;
+		m_Scale = 2.2727;
 	}
 	else if(gauss == 4.7F)
 	{
 		regValue = 0x05;
-		m_Scale = 2.56;
+		m_Scale = 2.5641;
 	}
 	else if(gauss == 5.6F)
 	{
 		regValue = 0x06;
-		m_Scale = 3.03;
+		m_Scale = 3.0303;
 	}
 	else if(gauss == 8.1F)
 	{
 		regValue = 0x07;
-		m_Scale = 4.35;
+		m_Scale = 4.3478;
 	}
 	else
 		return ErrorCode_1_Num;
