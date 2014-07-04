@@ -1,0 +1,10 @@
+L3G4200D		KEYWORD1
+GyroScaled		KEYWORD1
+GyroRaw			KEYWORD1
+Initialize		KEYWORD2
+SetRate			KEYWORD2
+CheckWhoAmI		KEYWORD2
+ReadRawAxis		KEYWORD2
+ReadScaledAxis	KEYWORD2
+Raw2Scaled		KEYWORD2
+GetErrorText	KEYWORD2
