@@ -13,7 +13,7 @@ __Modified Externally Sourced Libraries:__ _Do not directly modify_ an externall
 
 __Modifying Far Horizons Libraries:__ Modify existing non-externallhy sourced libraries to fix a bug or extend functionality. Be careful to keep backward compatibiity and not use excessive additional RAM. If in doubt, create a new, renamed library instead.
 
-__New Original Library__ Name it descriptively without making it too long. Use UPPERCASE or CamelCase styles.
+__New Original Library__ Name it descriptively without making it too long. <em>Search the web, esp. GitHub for the name before using it</em>. We do not want to create a library that will cause confusion in the community. If the name is already taken, add "Alt", your initials, or something to the end if nothing else. Use UPPERCASE or CamelCase styles.
     
 __Library Info Entry:__ Each library, externally sourced and otherwise, must have an entry in the LibraryInfo.md file.
 
