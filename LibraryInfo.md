@@ -32,6 +32,6 @@ NAME: HMC5883LFH_T<br>
 DESCRIPTION: HMC5883L modified for Teensy compatibility with additional FH methods.<br>
 SOURCE: Ryan Pierce for SensorLogger<br>
 
-NAME: L3G4200D<br>
+NAME: L3G4200D_I2C<br>
 DESCRIPTION: I2C library for L3G4200D 3-axis gyro / angular rate sensor.<br>
 SOURCE: Ryan Pierce for SensorLogger<br>
