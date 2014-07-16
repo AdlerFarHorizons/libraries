@@ -1,6 +1,6 @@
 /*
 
-L3G4200D.h - Header file for the L3G4200H triple axis gyro / angular rate sensor Arduino library
+L3G4200D_I2C.h - Header file for the L3G4200H triple axis gyro / angular rate sensor Arduino library
 
 Note: This chip supports I2C and SPI interfaces; this library supports I2C
 
@@ -21,72 +21,72 @@ INT1 and INT2 -> Not currently supported
 
 */
 
-#ifndef L3G4200D_h
-#define L3G4200D_h
+#ifndef L3G4200D_I2C_h
+#define L3G4200D_I2C_h
 
 #include <Arduino.h>
 #include <Wire.h>
 
-#define L3G4200D_Base_Address 0x68
+#define L3G4200D_I2C_Base_Address 0x68
 
 /*************************
     L3G4200D Registers
 *************************/
-#define L3G4200D_WHO_AM_I 0x0F
-#define L3G4200D_CTRL_REG1 0x20
-#define L3G4200D_CTRL_REG2 0x21
-#define L3G4200D_CTRL_REG3 0x22
-#define L3G4200D_CTRL_REG4 0x23
-#define L3G4200D_CTRL_REG5 0x24
-#define L3G4200D_REFERENCE 0x25
-#define L3G4200D_OUT_TEMP 0x26
-#define L3G4200D_STATUS_REG 0x27
-#define L3G4200D_OUT_X_L 0x28
-#define L3G4200D_OUT_X_H 0x29
-#define L3G4200D_OUT_Y_L 0x2A
-#define L3G4200D_OUT_Y_H 0x2B
-#define L3G4200D_OUT_Z_L 0x2C
-#define L3G4200D_OUT_Z_H 0x2D
-#define L3G4200D_FIFO_CTRL_REG 0x2E
-#define L3G4200D_FIFO_SRC_REG 0x2F
-#define L3G4200D_INT1_CFG 0x30
-#define L3G4200D_INT1_SRC 0x31
-#define L3G4200D_INT1_TSH_XH 0x32
-#define L3G4200D_INT1_TSH_XL 0x33
-#define L3G4200D_INT1_TSH_YH 0x34
-#define L3G4200D_INT1_TSH_YL 0x35
-#define L3G4200D_INT1_TSH_ZH 0x36
-#define L3G4200D_INT1_TSH_ZL 0x37
-#define L3G4200D_INT1_DURATION 0x38
+#define L3G4200D_I2C_WHO_AM_I 0x0F
+#define L3G4200D_I2C_CTRL_REG1 0x20
+#define L3G4200D_I2C_CTRL_REG2 0x21
+#define L3G4200D_I2C_CTRL_REG3 0x22
+#define L3G4200D_I2C_CTRL_REG4 0x23
+#define L3G4200D_I2C_CTRL_REG5 0x24
+#define L3G4200D_I2C_REFERENCE 0x25
+#define L3G4200D_I2C_OUT_TEMP 0x26
+#define L3G4200D_I2C_STATUS_REG 0x27
+#define L3G4200D_I2C_OUT_X_L 0x28
+#define L3G4200D_I2C_OUT_X_H 0x29
+#define L3G4200D_I2C_OUT_Y_L 0x2A
+#define L3G4200D_I2C_OUT_Y_H 0x2B
+#define L3G4200D_I2C_OUT_Z_L 0x2C
+#define L3G4200D_I2C_OUT_Z_H 0x2D
+#define L3G4200D_I2C_FIFO_CTRL_REG 0x2E
+#define L3G4200D_I2C_FIFO_SRC_REG 0x2F
+#define L3G4200D_I2C_INT1_CFG 0x30
+#define L3G4200D_I2C_INT1_SRC 0x31
+#define L3G4200D_I2C_INT1_TSH_XH 0x32
+#define L3G4200D_I2C_INT1_TSH_XL 0x33
+#define L3G4200D_I2C_INT1_TSH_YH 0x34
+#define L3G4200D_I2C_INT1_TSH_YL 0x35
+#define L3G4200D_I2C_INT1_TSH_ZH 0x36
+#define L3G4200D_I2C_INT1_TSH_ZL 0x37
+#define L3G4200D_I2C_INT1_DURATION 0x38
 
-struct GyroScaled
+struct L3G4200D_I2C_GyroScaled
 {
 	float XRate;
 	float YRate;
 	float ZRate;
 };
 
-struct GyroRaw
+struct L3G4200D_I2C_GyroRaw
 {
 	int16_t XRate;
 	int16_t YRate;
 	int16_t ZRate;
 };
 
-#define L3G4200D_ErrorCode_1 "Entered rate scale was not valid, valid gauss values are: 250, 500, 2000"
-#define L3G4200D_ErrorCode_1_Num 1
+#define L3G4200D_I2C_ErrorCode_1 "Entered rate scale was not valid, valid gauss values are: 250, 500, 2000"
+#define L3G4200D_I2C_ErrorCode_1_Num 1
 
-class L3G4200D
+class L3G4200D_I2C
 {
 	public:
-		L3G4200D(bool bSDO);
+		L3G4200D_I2C(bool bSDO);
 		uint8_t Initialize(uint16_t rate);
 		uint8_t SetRate(uint16_t rate);
 		bool CheckWhoAmI();
 		
-		GyroRaw ReadRawAxis();
-		GyroScaled ReadScaledAxis();
-		GyroScaled Raw2Scaled(GyroRaw raw);
+		L3G4200D_I2C_GyroRaw ReadRawAxis();
+		L3G4200D_I2C_GyroScaled ReadScaledAxis();
+		L3G4200D_I2C_GyroScaled Raw2Scaled(L3G4200D_I2C_GyroRaw raw);
 		
 		char* GetErrorText(uint8_t errorCode);
 	protected:
