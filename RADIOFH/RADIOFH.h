@@ -45,6 +45,8 @@
 
 #define GDO0	2 // Pin Config Test 0
 #define GDO2	9 // Pin Config Test 1
+#define LNA_EN  8 // Pin Config LNA Enable for CC1190
+#define PA_EN   7 // Pin Config PA Enable for CC1190
 
 
 
