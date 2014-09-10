@@ -47,11 +47,11 @@
   4.Arduino includes:
 
       #include <SPI.h>
-      #include "RADIOFH.h"
+      #include <RADIOFH.h>
       #include "some_name.h" // Local Register settings file
  */
 
-#include "RADIOFH.h"
+#include <RADIOFH.h>
 #include "pins_arduino.h"
 #include "SPI.h"
 
@@ -68,8 +68,6 @@ void RADIOClass::Reset (void) {
   SPI.transfer(RADIO_SRES);
   while(digitalRead(MISO));
   digitalWrite(SS, HIGH);
-  digitalWrite( LNA_EN, LOW );
-  digitalWrite( PA_EN, LOW );
 }
 
 
@@ -140,14 +138,12 @@ void RADIOClass::WriteBurstReg(byte addr, byte *buffer, byte count) {
 
 void RADIOClass::SendData(byte *txBuffer,byte size)
 {
-  digitalWrite( LNA_EN, LOW );
-  digitalWrite( PA_EN, HIGH );
+
   WriteSingleReg(RADIO_TXFIFO,size);
   WriteBurstReg(RADIO_TXFIFO,txBuffer,size);      //write data to send
   Strobe(RADIO_STX);                              //start send  
   while (!digitalRead(GDO0));                     // Wait for GDO0 to be set -> sync transmitted  
   while (digitalRead(GDO0));                      // Wait for GDO0 to be cleared -> end of packet
-  digitalWrite( PA_EN, LOW );
   Strobe(RADIO_SFTX);                             //flush TXfifo
 
 }
@@ -168,8 +164,6 @@ void RADIOClass::GDO_Set (void) {
 
   pinMode(GDO0, INPUT);
   pinMode(GDO2, INPUT);
-  pinMode(LNA_EN, OUTPUT);
-  pinMode(PA_EN, OUTPUT);
 
 }
 
@@ -178,8 +172,7 @@ void RADIOClass::GDO_Set (void) {
 
 
 void RADIOClass::SetReceive(void) {
-  digitalWrite( PA_EN, LOW );
-  digitalWrite( LNA_EN, HIGH );
+
   Strobe(RADIO_SRX);
 
 }
