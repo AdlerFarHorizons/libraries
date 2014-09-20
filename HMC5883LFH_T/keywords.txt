@@ -16,6 +16,7 @@ MagnetometerScaled	KEYWORD1
 
 ReadRawAxis			KEYWORD2
 ReadScaledAxis		KEYWORD2
+RawToScaled			KEYWORD2
 SetConfiguration	KEYWORD2
 SetMeasurementMode	KEYWORD2
 SetScale			KEYWORD2

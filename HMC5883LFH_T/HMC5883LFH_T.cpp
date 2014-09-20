@@ -41,12 +41,19 @@ MagnetometerRaw HMC5883L::ReadRawAxis()
 MagnetometerScaled HMC5883L::ReadScaledAxis()
 {
   MagnetometerRaw raw = ReadRawAxis();
+  return RawToScaled(&raw);
+}
+
+
+MagnetometerScaled HMC5883L::RawToScaled(MagnetometerRaw* pRaw)
+{
   MagnetometerScaled scaled = MagnetometerScaled();
-  scaled.XAxis = raw.XAxis * m_Scale;
-  scaled.ZAxis = raw.ZAxis * m_Scale;
-  scaled.YAxis = raw.YAxis * m_Scale;
+  scaled.XAxis = pRaw->XAxis * m_Scale;
+  scaled.ZAxis = pRaw->ZAxis * m_Scale;
+  scaled.YAxis = pRaw->YAxis * m_Scale;
   return scaled;
 }
+
 
 int HMC5883L::SetScale(float gauss)
 {

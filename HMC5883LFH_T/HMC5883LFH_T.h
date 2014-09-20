@@ -84,6 +84,7 @@ class HMC5883L
 
 	  MagnetometerRaw ReadRawAxis();
 	  MagnetometerScaled ReadScaledAxis();
+	  MagnetometerScaled RawToScaled(MagnetometerRaw* pRaw);
   
 	  int SetConfiguration(uint8_t averaging, uint8_t rate, uint8_t bias);
 	  int SetMeasurementMode(uint8_t mode);
